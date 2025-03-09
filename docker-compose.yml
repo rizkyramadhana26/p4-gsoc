@@ -1,0 +1,42 @@
+services:
+  http_a:
+    build:
+      context: ./http_a
+    ports:
+      - "8001:8000"
+    networks:
+      - flat_network
+
+  http_b:
+    build:
+      context: ./http_b
+    networks:
+      - flat_network
+
+  http_c:
+    build:
+      context: ./http_c
+    networks:
+      - flat_network
+
+  rpc_a:
+    build:
+      context: ./rpc_a
+    networks:
+      - flat_network
+
+  rpc_b:
+    build:
+      context: ./rpc_b
+    networks:
+      - flat_network
+
+  rpc_c:
+    build:
+      context: ./rpc_c
+    networks:
+      - flat_network
+
+networks:
+  flat_network:
+    driver: bridge
